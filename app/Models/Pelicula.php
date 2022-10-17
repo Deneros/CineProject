@@ -22,6 +22,6 @@ class Peliculas extends Model
         'poster'
     ];
 
-    protected $timestamps = false;
+    // protected $timestamps = false;
     
 }
