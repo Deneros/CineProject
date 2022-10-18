@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pelicula;
 
 class peliculaController extends Controller
 {
@@ -15,7 +16,8 @@ class peliculaController extends Controller
 
     public function index()
     {
-        //
+        $peliculas = Pelicula::orderByDesc('id_pelicula')->get();
+        return view('peliculas.list', compact('peliculas'));
     }
 
     /**
@@ -36,8 +38,32 @@ class peliculaController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
-        var_dump($request->poster);
+        // dd($request->movie_name);
+        // $datos = $request->validate([
+        //     'movie_name'=>'required|max:60',
+        //     'description'=>'required|max:255',
+        //     'movie_gender'=>'required|max:60',
+        //     'price'=>'required|numeric|min:10000',
+        //     'movie_room'=>'required|numeric|min:1',
+        //     'movie_date'=>'required',   
+        //     'poster'=>'required',   
+        // ]);
+
+        // $pelicula = Pelicula::create($datos);
+        // return dd($pelicula);
+        
+
+        $pelicula = new Pelicula();
+        $pelicula->nombre_pelicula = $request->movie_name;
+        $pelicula->descripcion = $request->description;
+        $pelicula->genero = $request->movie_gender;
+        $pelicula->precio = $request->price;
+        $pelicula->sala = $request->movie_room;
+        $pelicula->fecha = $request->movie_date;
+        $pelicula->poster = $request->poster;
+        $pelicula->save();
+        
+        return redirect()->route('pelicula.list');
     }
 
     /**
