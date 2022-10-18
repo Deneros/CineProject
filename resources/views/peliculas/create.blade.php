@@ -9,9 +9,9 @@
         <div>
             <x-input-label for="name" :value="__('Movie name')" />
 
-            <x-text-input id="name_movie" class="block mt-1 w-full" type="text" name="name_movie" :value="old('name_movie')" required autofocus />
+            <x-text-input id="movie_name" class="block mt-1 w-full" type="text" name="movie_name" :value="old('movie_name')" required autofocus />
 
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            <x-input-error :messages="$errors->get('movie_name')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
@@ -58,7 +58,9 @@
         </div>
 
         <div class="mt-4">
-            <x-file-input id="poster" class="block mt-1 w-full" type="file" name="poster" :value="old('poster')" required />
+            <x-input-label for="room" :value="__('URL from the picture')" />
+
+            <x-text-input id="poster" class="block mt-1 w-full" type="text" name="poster" :value="old('poster')" required />
 
             <x-input-error :messages="$errors->get('poster')" class="mt-2" />
         </div>
