@@ -22,7 +22,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('movie/form', [peliculaController::class, 'create'])->name('pelicula.create');
-Route::post('movie/register',[peliculaController::class,'store'])->name('pelicula.store');
+Route::get('/movie/form', [peliculaController::class, 'create'])->name('pelicula.create');
+Route::get('/movie/list', [peliculaController::class, 'index'])->name('pelicula.list');
+Route::post('/movie/register',[peliculaController::class,'store'])->name('pelicula.store');
 
 require __DIR__.'/auth.php';
