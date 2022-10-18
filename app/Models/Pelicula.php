@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Peliculas extends Model
+class Pelicula extends Model
 {
     use HasFactory;
 
@@ -23,5 +23,5 @@ class Peliculas extends Model
     ];
 
     // protected $timestamps = false;
-    
+    public $timestamps  = false;
 }
