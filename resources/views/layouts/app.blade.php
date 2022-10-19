@@ -25,6 +25,8 @@
                 </header>
             @endif
             <main>
+                @yield('listalimento')
+                @yield('alimento')
                 @yield('contenido')
                 @yield('pelicula')
             </main>

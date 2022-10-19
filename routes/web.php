@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\peliculaController;
+use App\Http\Controllers\alimentoController;
+use App\Http\Controllers\comprasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,5 +27,9 @@ Route::get('/dashboard', function () {
 Route::get('/movie/form', [peliculaController::class, 'create'])->name('pelicula.create');
 Route::get('/movie/list', [peliculaController::class, 'index'])->name('pelicula.list');
 Route::post('/movie/register',[peliculaController::class,'store'])->name('pelicula.store');
+Route::get('/food/form',[alimentoController::class,'create'])->name('alimento.create');
+Route::get('/food/list',[alimentoController::class,'index'])->name('alimento.list');
+Route::post('/food/register',[alimentoController::class,'store'])->name('alimento.store');
+Route::post('/pucharses/register',[comprasController::class,'store'])->name('compra.store');
 
 require __DIR__.'/auth.php';
