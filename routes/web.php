@@ -26,7 +26,11 @@ Route::get('/dashboard', function () {
 
 Route::get('/movie/form', [peliculaController::class, 'create'])->name('pelicula.create');
 Route::get('/movie/list', [peliculaController::class, 'index'])->name('pelicula.list');
+Route::get('/movie/{pelicula}/edit', [peliculaController::class, 'edit'])->name('pelicula.edit');
+Route::put('/movie/{pelicula}/update', [peliculaController::class, 'update'])->name('pelicula.update');
+Route::delete('/movie/delete', [peliculaController::class, 'destroy'])->name('pelicula.destroy');
 Route::post('/movie/register',[peliculaController::class,'store'])->name('pelicula.store');
+
 Route::get('/food/form',[alimentoController::class,'create'])->name('alimento.create');
 Route::get('/food/list',[alimentoController::class,'index'])->name('alimento.list');
 Route::post('/food/register',[alimentoController::class,'store'])->name('alimento.store');

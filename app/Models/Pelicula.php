@@ -10,6 +10,7 @@ class Pelicula extends Model
     use HasFactory;
 
     protected $table = 'peliculas';
+    protected $primaryKey = 'id_pelicula';
 
     protected $fillable= [
         'nombre_pelicula',
@@ -22,6 +23,5 @@ class Pelicula extends Model
         'poster'
     ];
 
-    // protected $timestamps = false;
     public $timestamps  = false;
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pelicula;
+use Illuminate\Support\Facades\DB;
 
 class peliculaController extends Controller
 {
@@ -83,9 +84,10 @@ class peliculaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Pelicula $pelicula)
     {
-        //
+        // dd($pelicula);
+        return view('peliculas.edit', compact('pelicula'));
     }
 
     /**
@@ -97,7 +99,9 @@ class peliculaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // dd($request);
+        $pelicula = DB::table('peliculas')->where('id_pelicula',$id)->update(['nombre_pelicula'=>$request->movie_name, 'descripcion'=>$request->description,'genero'=>$request->movie_gender,'precio'=>$request->price,'sala'=>$request->movie_room,'tipo'=>NULL,'fecha'=>$request->movie_date,'poster'=>$request->poster]);
+        return redirect()->route('pelicula.list');
     }
 
     /**
@@ -106,8 +110,9 @@ class peliculaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $pelicula = DB::table('peliculas')->where('id_pelicula',$request->id)->delete();
+        return redirect()->route('pelicula.list');
     }
 }

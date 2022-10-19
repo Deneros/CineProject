@@ -25,6 +25,7 @@
                 </header>
             @endif
             <main>
+                @yield('editpelicula')
                 @yield('listalimento')
                 @yield('alimento')
                 @yield('contenido')
